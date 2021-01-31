@@ -50,6 +50,22 @@ $(document).ready(event => {
         alert(`Something went wrong`);
       }
     })
+  })
 
+  // DELETE BOOK
+  $('#delete-btn').on("click", () => {
+    const id = $(this).attr('data-id');
+
+    $.ajax({
+      url: `/api/books/${id}`,
+      type: `DELETE`
+    }).then(response => {
+      if (response.ok) {
+        console.log(`Book deleted`);
+        location.reload('/');
+      } else {
+        alert(`Something went wrong`);
+      }
+    })
   })
 });

@@ -1,20 +1,20 @@
-INSERT INTO books (book_name, author, finished)
-VALUES  ("The Great Influenza", "John M. Barry", false);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("Sillness is the Key", "Ryan Holiday", true);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("Rise to Globalism", "Stephen E. Ambrose", true);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("It Was All a Lie", "Stuart Stevens", true);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("The Lean Startup", "Eric Ries", false);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("Grant", "Ron Chernow", true);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("The Guns of August", "Barbara W. Tuchman", true);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("The Storm Before the Storm", "John M. Barry", true);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("1776", "David McCullough", true);
-INSERT INTO books (book_name, author, finished)
-VALUES  ("The War of Art", "Steven Pressfield", false);
+INSERT INTO books (book_info, finished)
+VALUES  ("The Great Influenza by John M. Barry", false);
+INSERT INTO books (book_info, finished)
+VALUES  ("Sillness is the Key by Ryan Holiday", true);
+INSERT INTO books (book_info, finished)
+VALUES  ("Rise to Globalism by Stephen E. Ambrose", true);
+INSERT INTO books (book_info, finished)
+VALUES  ("It Was All a Lie by Stuart Stevens", true);
+INSERT INTO books (book_info, finished)
+VALUES  ("The Lean Startup by Eric Ries", false);
+INSERT INTO books (book_info, finished)
+VALUES  ("Grant by Ron Chernow", true);
+INSERT INTO books (book_info, finished)
+VALUES  ("The Guns of August by Barbara W. Tuchman", true);
+INSERT INTO books (book_info, finished)
+VALUES  ("The Storm Before the Storm by Mike Duncan", true);
+INSERT INTO books (book_info, finished)
+VALUES  ("1776 by David McCullough", true);
+INSERT INTO books (book_info, finished)
+VALUES  ("The War of Art by Steven Pressfield", false);

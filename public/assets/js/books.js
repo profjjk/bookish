@@ -2,34 +2,54 @@ $(document).ready(event => {
   if (event) console.info('Dom loaded')
 
   // UPDATE BOOK FINISHED STATUS
-  const books = $('.book');
   // Create event listener.
-  if (books) {
-    books.on("click", () => {
-      const id = $(this).attr('data-id');
-      const status = $(this).attr('data-finished');
-      let newStatus;
+  $('.book').on("click", () => {
+    const id = $(this).attr('data-id');
+    const status = $(this).attr('data-finished');
+    let newStatus;
 
-      if (status === true) {
-        newStatus = { finished: false };
+    if (status === true) {
+      newStatus = { finished: false };
+    } else {
+      newStatus = { finished: true };
+    }
+
+    $.ajax({
+      url: `/api/books/${id}`,
+      type: `PUT`,
+      data: newStatus,
+    }).then(response => {
+      if (response.ok) {
+        console.log(`Changed book finished status to ${newStatus}`);
+        location.reload('/');
       } else {
-        newStatus = { finished: true };
+        alert(`Something went wrong`);
       }
-
-      $.ajax({
-        url: `/api/books/${id}`,
-        type: "PUT",
-        data: newStatus,
-      }).then(response => {
-        if (response.ok) {
-          console.log(`Changed book finished status to ${newStatus}`);
-          location.reload('/');
-        } else {
-          alert(`Something went wrong`);
-        }
-      });
     });
-  };
+  });
 
   // CREATE NEW BOOK
+  $('#add-btn').on("click", event => {
+    event.preventDefault();
+
+    const bookInfo = $('#new-book').val();
+
+    const newBook = {
+      book_info: bookInfo,
+    }
+
+    $.ajax({
+      url: `/api/books`,
+      type: `POST`,
+      data: newBook
+    }).then(response => {
+      if (response.ok) {
+        console.log(`A new book has been added`);
+        location.reload('/');
+      } else {
+        alert(`Something went wrong`);
+      }
+    })
+
+  })
 });

@@ -23,6 +23,7 @@ $(document).ready(event => {
         alert(`Something went wrong`);
       }
     })
+    $('#new-book').val("")
   })
 
   // UPDATE BOOK

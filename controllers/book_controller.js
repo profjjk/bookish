@@ -12,13 +12,13 @@ router.get("/", function(req, res) {
     const bookObj = {
       books: data
     }
-    console.log(bookObj);
     res.render("index", bookObj);
   });
 });
 
 router.post("/api/books", function(req, res) {
-  book.insert(req.body.newBook, function(result) {
+  book.insert(["book_info"], [req.body.newBook],
+    function(result) {
     res.json({ id: result.insertId })
   })
 })

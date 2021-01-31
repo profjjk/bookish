@@ -13,8 +13,8 @@ const orm = {
   insert: function(value, cb) {
     let queryString = `
     INSERT INTO books (book_info)
-    VALUES (${value}, false);`
-    connection.query(queryString, function(err, result) {
+    VALUES (?);`
+    connection.query(queryString, value, function(err, result) {
       if (err) throw err;
       cb(result);
     })

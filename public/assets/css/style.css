@@ -27,16 +27,15 @@ h4 {
   background: #fff;
 }
 .book:hover {
-  background-color: #d9dab0;
+  background: #d9dab0;
   cursor: pointer;
+}
+#bookInfo {
+  width: 90%;
 }
 #add-btn {
   background: #f4f5db;
   color: #000;
-}
-#delete-btn {
-  height: 25px;
-  width: 25px;
 }
 #delete-btn:hover {
   cursor: pointer;

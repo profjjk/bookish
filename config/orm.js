@@ -19,11 +19,11 @@ const orm = {
       cb(result);
     })
   },
-  update: function(id, boolean, cb) {
+  update: function(boolean, id, cb) {
     let queryString = `
-    UPDATE books SET finished = ${boolean}
-    WHERE id = ${parseInt(id)}`
-    connection.query(queryString, function(err, result) {
+    UPDATE books SET finished = (?)
+    WHERE id = (?)`
+    connection.query(queryString, boolean, id, function(err, result) {
       if (err) throw err;
       cb(result);
     })
@@ -31,8 +31,8 @@ const orm = {
   delete: function(id, cb) {
     let queryString = `
     DELETE FROM books
-    WHERE id = ${parseInt(id)}`
-    connection.query(queryString, function(err, result) {
+    WHERE id = (${parseInt('?')})`
+    connection.query(queryString, value, function(err, result) {
       if (err) throw err;
       cb(result);
     })

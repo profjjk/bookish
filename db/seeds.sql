@@ -1,7 +1,7 @@
 INSERT INTO books (book_info, finished)
 VALUES  ("The Great Influenza by John M. Barry", false);
 INSERT INTO books (book_info, finished)
-VALUES  ("Sillness is the Key by Ryan Holiday", true);
+VALUES  ("Stillness is the Key by Ryan Holiday", true);
 INSERT INTO books (book_info, finished)
 VALUES  ("Rise to Globalism by Stephen E. Ambrose", true);
 INSERT INTO books (book_info, finished)

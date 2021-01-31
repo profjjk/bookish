@@ -17,7 +17,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/books", function(req, res) {
-  book.insert(["book_info"], [req.body.newBook],
+  book.insert([req.body.book_info],
     function(result) {
     res.json({ id: result.insertId })
   })
@@ -28,6 +28,16 @@ router.put("/api/books/:id", function(req, res) {
   let boolean = false;
   
   book.update(id, )
+})
+
+router.delete("/api/books/:id", function(req, res) {
+  const id = req.params.id;
+  book.delete([id], function(result) {
+    if (result.changedRows === 0) {
+      return res.status(404).end();
+    }
+    res.status(200).end();
+  })
 })
 
 module.exports = router;

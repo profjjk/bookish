@@ -1,6 +1,6 @@
 // DEPENDENCIES
 // ================================================
-const connection = require('connection');
+const connection = require('./connection');
 
 const orm = {
   all: function(cb) {

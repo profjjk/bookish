@@ -1,6 +1,6 @@
 // DEPENDENCIES
 // ================================================
-const orm = require('/../config/orm.js');
+const orm = require('./../config/orm.js');
 
 const book = {
   all: function(cb) {

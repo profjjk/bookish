@@ -1,8 +1,31 @@
 $(document).ready(event => {
   if (event) console.info('Dom loaded')
 
-  // UPDATE BOOK FINISHED STATUS
-  // Create event listener.
+  // CREATE NEW BOOK
+  $('#add-btn').on("click", event => {
+    event.preventDefault();
+
+    const bookInfo = $('#new-book').val();
+
+    const newBook = {
+      book_info: bookInfo,
+    }
+
+    $.ajax({
+      url: `/api/books`,
+      type: `POST`,
+      data: newBook
+    }).then(response => {
+      if (response.ok) {
+        console.log(`A new book has been added`);
+        location.reload('/');
+      } else {
+        alert(`Something went wrong`);
+      }
+    })
+  })
+
+  // UPDATE BOOK
   $('.book').on("click", () => {
     const id = $(this).attr('data-id');
     const status = $(this).attr('data-finished');
@@ -27,30 +50,6 @@ $(document).ready(event => {
       }
     });
   });
-
-  // CREATE NEW BOOK
-  $('#add-btn').on("click", event => {
-    event.preventDefault();
-
-    const bookInfo = $('#new-book').val();
-
-    const newBook = {
-      book_info: bookInfo,
-    }
-
-    $.ajax({
-      url: `/api/books`,
-      type: `POST`,
-      data: newBook
-    }).then(response => {
-      if (response.ok) {
-        console.log(`A new book has been added`);
-        location.reload('/');
-      } else {
-        alert(`Something went wrong`);
-      }
-    })
-  })
 
   // DELETE BOOK
   $('#delete-btn').on("click", () => {

@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-8 m-4 rounded">
       <h1 class="text-center m-3">Bookish</h1>
-      <img src="/../public/assets/img/PngItem_5298757.png" class="rounded m-auto p-4 d-block" id="book-stack"
+      <img src="/../public/assets/img/book-stack.png" class="rounded m-auto p-4 d-block" id="book-stack"
         alt="Books">
     </div>
   </div>
@@ -15,7 +15,7 @@
       <div class="input-group mb-3">
         <button class="btn btn-outline-secondary" id="add-btn">Add</button>
         <input type="text" class="form-control" placeholder="Enter book title and author"
-          aria-label="Example text with button addon" aria-describedby="button-addon1" id="new-book">
+          aria-label="Example text with button addon" aria-describedby="button-addon1" name="newBook" id="new-book">
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
       {{/each}}
     </div>
     <!-- Books finished -->
-    <div class="col-4 left p-2">
+    <div class="col-4 right p-2">
       {{#each books}}
       {{#if finished}}
       {{> book-block finished = true}}

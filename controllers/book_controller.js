@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/books", function(req, res) {
-  book.insert(req.body.book_info, function(result) {
+  book.insert(req.body.newBook, function(result) {
     res.json({ id: result.insertId })
   })
 })

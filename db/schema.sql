@@ -8,5 +8,5 @@ CREATE TABLE books (
   id INT AUTO_INCREMENT PRIMARY KEY,
   book_name VARCHAR(250) NOT NULL,
   author VARCHAR(50),
-  finished BOOLEAN DEFAULT false,
-)
+  finished BOOLEAN DEFAULT false
+):

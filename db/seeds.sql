@@ -5,7 +5,7 @@ VALUES  ("Sillness is the Key", "Ryan Holiday", true);
 INSERT INTO books (book_name, author, finished)
 VALUES  ("Rise to Globalism", "Stephen E. Ambrose", true);
 INSERT INTO books (book_name, author, finished)
-VALUES  ("It Was ALL a Lie", "Stuart Stevens", true);
+VALUES  ("It Was All a Lie", "Stuart Stevens", true);
 INSERT INTO books (book_name, author, finished)
 VALUES  ("The Lean Startup", "Eric Ries", false);
 INSERT INTO books (book_name, author, finished)

@@ -1,44 +1,53 @@
 <div class="container-fluid">
 
-      <div class="row justify-content-center">
-        <div class="col-8 m-4 rounded">
-          <h1 class="text-center m-3">Bookish</h1>
-          <img src="/../public/assets/img/PngItem_5298757.png" class="rounded m-auto p-4 d-block" id="book-stack" alt="Books">
-        </div>
-      </div>
+  <!-- Header area -->
+  <div class="row justify-content-center">
+    <div class="col-8 m-4 rounded">
+      <h1 class="text-center m-3">Bookish</h1>
+      <img src="/../public/assets/img/PngItem_5298757.png" class="rounded m-auto p-4 d-block" id="book-stack"
+        alt="Books">
+    </div>
+  </div>
 
-      <div class="row justify-content-center">
-        <div class="col-4 m-4 p-3">
-          <div class="input-group mb-3">
-            <button class="btn btn-outline-secondary" id="add-btn">Add</button>
-            <input type="text" class="form-control" placeholder="Enter book title and author" aria-label="Example text with button addon" aria-describedby="button-addon1">
-          </div>
-        </div>
-      </div>
-        
-      <div class="row justify-content-center">
-        <div class="col-4 left p-2">
-          <h4 class="text-center">Books I want to read</h4>
-        </div>
-
-        <div class="col-4 right p-2">
-          <h4 class="text-center">Books I finished reading</h4>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-4 left p-2">
-          <div class="input-group mb-3 list-area rounded p-1">
-            <p class="text-center m-auto">Book to read</p>
-            <img src="/../public/assets/img/x-square-fill.svg" alt="Delete" id="delete-btn">
-          </div>
-        </div>
-
-        <div class="col-4 left p-2">
-          <div class="input-group mb-3 list-area rounded p-1">
-            <p class="text-center m-auto">Book finished</p>
-            <img src="/../public/assets/img/x-square-fill.svg" alt="Delete" id="delete-btn">
-          </div>
-        </div>
+  <!-- Add new books input field -->
+  <div class="row justify-content-center">
+    <div class="col-4 m-4 p-3">
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" id="add-btn">Add</button>
+        <input type="text" class="form-control" placeholder="Enter book title and author"
+          aria-label="Example text with button addon" aria-describedby="button-addon1" id="new-book">
       </div>
     </div>
+  </div>
+
+  <!-- Column titles -->
+  <div class="row justify-content-center">
+    <div class="col-4 left p-2">
+      <h4 class="text-center">Books I want to read</h4>
+    </div>
+    <div class="col-4 right p-2">
+      <h4 class="text-center">Books I finished reading</h4>
+    </div>
+  </div>
+
+  <!-- Book information fields -->
+  <div class="row justify-content-center">
+    <!-- Books to read -->
+    <div class="col-4 left p-2">
+      {{#each books}}
+      {{#unless finished}}
+      {{> book-block finished = false}}
+      {{/unless}}
+      {{/each}}
+    </div>
+    <!-- Books finished -->
+    <div class="col-4 left p-2">
+      {{#each books}}
+      {{#if finished}}
+      {{> book-block finished = true}}
+      {{/if}}
+      {{/each}}
+    </div>
+  </div>
+
+</div>

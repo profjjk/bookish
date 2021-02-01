@@ -7,37 +7,36 @@ const orm = {
     let queryString = `
     SELECT * FROM books
     ORDER BY id DESC;`
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function(err, res) {
       if (err) throw err;
-      cb(result);
+      cb(res);
     })
   },
   insert: function(value, cb) {
     let queryString = `
     INSERT INTO books (book_info)
     VALUES (?);`
-    connection.query(queryString, value, function(err, result) {
+    connection.query(queryString, value, function(err, res) {
       if (err) throw err;
-      cb(result);
+      cb(res);
     })
   },
   update: function(id, boolean, cb) {
     let queryString = `
-    UPDATE books SET finished = (?)
-    WHERE id = (?);`
-    connection.query(queryString, boolean, id, function(err, result) {
+    UPDATE books SET finished = ${boolean}
+    WHERE id = ?;`
+    connection.query(queryString, id, function(err, res) {
       if (err) throw err;
-      cb(result);
+      cb(res);
     })
   },
   delete: function(id, cb) {
-    console.log("ORM: " + id)
     let queryString = `
     DELETE FROM books
-    WHERE id = (?);`
-    connection.query(queryString, id, function(err, result) {
+    WHERE id = ?;`
+    connection.query(queryString, id, function(err, res) {
       if (err) throw err;
-      cb(result);
+      cb(res);
     })
   },
 }

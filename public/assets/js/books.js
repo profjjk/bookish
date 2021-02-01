@@ -1,5 +1,4 @@
 $(document).ready(event => {
-  if (event) console.info('Dom loaded')
 
   // CREATE NEW BOOK
   $('#add-btn').on("click", event => {
@@ -14,9 +13,7 @@ $(document).ready(event => {
       type: `POST`,
       data: newBook
     }).then(() => {
-      console.log(`A new book has been added`);
       location.reload("/");
-      $('#new-book').val("")
     })
   })
 
@@ -26,13 +23,14 @@ $(document).ready(event => {
 
     const id = event.target.getAttribute('data-id')
     const status = event.target.getAttribute('data-finished');
-    let updBook = [];
+    let updBook ;
 
+    console.log("ID: " + id)
     console.log("Status: " + status)
 
     if (status === "false") {
       updBook = {
-        finished: true
+        finished: true,
       }
     } else if (status === "true") {
       updBook = {
@@ -40,14 +38,11 @@ $(document).ready(event => {
       }
     }
 
-    console.log(updBook)
-
     $.ajax({
       url: `/api/books/${id}`,
       type: `PUT`,
       data: updBook,
     }).then(response => {
-      console.log(`Changed book finished status`);
       location.reload('/');
     });
   });
@@ -61,7 +56,6 @@ $(document).ready(event => {
       url: `/api/books/${id}`,
       type: `DELETE`
     }).then(response => {
-      console.log(`Book deleted`);
       location.reload('/');
     });
   });

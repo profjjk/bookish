@@ -1,8 +1,8 @@
-<div class="input-group mb-3" data-id="434">
-  <button class="text-center mx-auto rounded  book" data-id="{{id}}" data-finished="{{finished}}">
+<div class="input-group mb-3">
+  <button class="text-center mx-auto rounded book" data-id="{{id}}" data-finished="{{finished}}">
     {{book_info}}
   </button>
   <button type="button" class="btn btn-secondary rounded delete" data-id="{{this.id}}">
-    <i class="fas fa-trash" style="font-size:18px;"></i>
+    <i class="fas fa-trash" style="font-size:18px;" data-id="{{this.id}}"></i>
   </button>
 </div>

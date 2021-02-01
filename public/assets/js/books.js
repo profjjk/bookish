@@ -21,10 +21,13 @@ $(document).ready(event => {
   })
 
   // UPDATE BOOK
-  $(document.body).on("click", '.book-info', () => {
+  $(document.body).on("click", '.book', () => {
     const id = event.target.getAttribute('data-id');
     const status = event.target.getAttribute('data-finished');
     let newStatus;
+
+    console.log("ID: " + id);
+    console.log("Finished: " + status);
 
     if (status === true) {
       newStatus = { id: id, finished: false };

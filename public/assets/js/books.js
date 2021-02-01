@@ -1,6 +1,8 @@
+// EVENT LISTENERS & API REQUESTS
+// ================================================
 $(document).ready(event => {
 
-  // CREATE NEW BOOK
+  // Create a new book.
   $('#add-btn').on("click", event => {
     event.preventDefault();
 
@@ -8,6 +10,7 @@ $(document).ready(event => {
       book_info: $('#new-book').val().trim(),
     }
 
+    // Send post request.
     $.ajax({
       url: `/api/books`,
       type: `POST`,
@@ -17,17 +20,16 @@ $(document).ready(event => {
     })
   })
 
-  // UPDATE BOOK
+  // Update a book's finished status.
   $(document.body).on("click", '.book', (event) => {
     event.preventDefault();
 
+    // Get id and status.
     const id = event.target.getAttribute('data-id')
     const status = event.target.getAttribute('data-finished');
     let updBook ;
 
-    console.log("ID: " + id)
-    console.log("Status: " + status)
-
+    // Change status.
     if (status === "false") {
       updBook = {
         finished: true,
@@ -38,6 +40,7 @@ $(document).ready(event => {
       }
     }
 
+    // Send put request.
     $.ajax({
       url: `/api/books/${id}`,
       type: `PUT`,
@@ -47,7 +50,7 @@ $(document).ready(event => {
     });
   });
 
-  // DELETE BOOK
+  // Delete book.
   $(document.body).on("click", '.delete', (event) => {
     event.preventDefault();
     const id = event.target.getAttribute('data-id');

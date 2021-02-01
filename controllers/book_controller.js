@@ -3,10 +3,12 @@
 const express = require('express');
 const book = require('./../models/book.js')
 
-const router = express.Router();
 
 // ROUTES
 // ================================================
+const router = express.Router();
+
+// Display books on page.
 router.get("/", function(req, res) {
   book.all(function(data) {
     const bookObj = {
@@ -16,6 +18,7 @@ router.get("/", function(req, res) {
   });
 });
 
+// Post new book to database
 router.post("/api/books", function(req, res) {
   book.insert([req.body.book_info],
     function(result) {
@@ -23,6 +26,7 @@ router.post("/api/books", function(req, res) {
   })
 })
 
+// Change finished status of a book.
 router.put("/api/books/:id", function(req, res) {
   book.update(req.params.id, req.body.finished, function(result) {
     if (result.affectedRows === 0) {
@@ -32,7 +36,7 @@ router.put("/api/books/:id", function(req, res) {
   })
 })
 
-
+// Delete book
 router.delete("/api/books/:id", function(req, res) {
   book.delete([req.params.id], function(result) {
     if (result.affectedRows === 0) {
@@ -42,4 +46,7 @@ router.delete("/api/books/:id", function(req, res) {
   })
 })
 
+
+// ROUTES
+// ================================================
 module.exports = router;

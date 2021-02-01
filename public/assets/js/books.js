@@ -21,26 +21,33 @@ $(document).ready(event => {
   })
 
   // UPDATE BOOK
-  $(document.body).on("click", '.book', () => {
-    const id = event.target.getAttribute('data-id');
+  $(document.body).on("click", '.book', (event) => {
+    event.preventDefault();
+
+    const id = event.target.getAttribute('data-id')
     const status = event.target.getAttribute('data-finished');
-    let newStatus;
+    let updBook = [];
 
-    console.log("ID: " + id);
-    console.log("Finished: " + status);
+    console.log("Status: " + status)
 
-    if (status === true) {
-      newStatus = { id: id, finished: false };
-    } else {
-      newStatus = { id: id, finished: true };
+    if (status === "false") {
+      updBook = {
+        finished: true
+      }
+    } else if (status === "true") {
+      updBook = {
+        finished: false,
+      }
     }
+
+    console.log(updBook)
 
     $.ajax({
       url: `/api/books/${id}`,
       type: `PUT`,
-      data: newStatus,
+      data: updBook,
     }).then(response => {
-      console.log(`Changed book finished status to ${newStatus}`);
+      console.log(`Changed book finished status`);
       location.reload('/');
     });
   });

@@ -21,11 +21,10 @@ const orm = {
       cb(result);
     })
   },
-  update: function(boolean, id, cb) {
+  update: function(id, boolean, cb) {
     let queryString = `
     UPDATE books SET finished = (?)
-    WHERE id = (?)`
-    console.log("bool: " + boolean + " | " + "ID: " + id);
+    WHERE id = (?);`
     connection.query(queryString, boolean, id, function(err, result) {
       if (err) throw err;
       cb(result);
@@ -35,7 +34,7 @@ const orm = {
     console.log("ORM: " + id)
     let queryString = `
     DELETE FROM books
-    WHERE id = (?)`
+    WHERE id = (?);`
     connection.query(queryString, id, function(err, result) {
       if (err) throw err;
       cb(result);

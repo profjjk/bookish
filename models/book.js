@@ -13,8 +13,8 @@ const book = {
       cb(res);
     });
   },
-  update: function(boolean, id, cb) {
-    orm.update(boolean, id, function(res) {
+  update: function(id, boolean, cb) {
+    orm.update(id, boolean, function(res) {
       cb(res);
     });
   },

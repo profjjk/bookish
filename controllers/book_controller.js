@@ -24,11 +24,14 @@ router.post("/api/books", function(req, res) {
 })
 
 router.put("/api/books/:id", function(req, res) {
-  const id = req.params.id;
-  let boolean = false;
-  
-  book.update(id, )
+  book.update([req.params.id], [req.body.finished], function(result) {
+    if (result.affectedRows === 0) {
+      return res.status(404).end();
+    }
+    res.status(200).end();
+  })
 })
+
 
 router.delete("/api/books/:id", function(req, res) {
   console.log("Controller: " + req.params.id);

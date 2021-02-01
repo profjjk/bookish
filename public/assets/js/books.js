@@ -15,15 +15,15 @@ $(document).ready(event => {
       data: newBook
     }).then(() => {
       console.log(`A new book has been added`);
-      location.reload();
+      location.reload("/");
       $('#new-book').val("")
     })
   })
 
   // UPDATE BOOK
   $(document.body).on("click", '.book-info', () => {
-    const id = $(this).attr('data-id');
-    const status = $(this).attr('data-finished');
+    const id = event.target.getAttribute('data-id');
+    const status = event.target.getAttribute('data-finished');
     let newStatus;
 
     if (status === true) {
@@ -45,8 +45,7 @@ $(document).ready(event => {
   // DELETE BOOK
   $(document.body).on("click", '.delete', (event) => {
     event.preventDefault();
-    const id = $(this).attr('data-id');
-    console.log("Books: " + id);
+    const id = event.target.getAttribute('data-id');
 
     $.ajax({
       url: `/api/books/${id}`,

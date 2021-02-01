@@ -30,8 +30,9 @@ h4 {
   background: #d9dab0;
   cursor: pointer;
 }
-#bookInfo {
+.book {
   width: 90%;
+  border: none;
 }
 #add-btn {
   background: #f4f5db;

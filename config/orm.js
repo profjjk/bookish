@@ -4,7 +4,9 @@ const connection = require('./connection');
 
 const orm = {
   all: function(cb) {
-    let queryString = `SELECT * FROM books;`
+    let queryString = `
+    SELECT * FROM books
+    ORDER BY id DESC;`
     connection.query(queryString, function(err, result) {
       if (err) throw err;
       cb(result);
@@ -23,16 +25,18 @@ const orm = {
     let queryString = `
     UPDATE books SET finished = (?)
     WHERE id = (?)`
+    console.log("bool: " + boolean + " | " + "ID: " + id);
     connection.query(queryString, boolean, id, function(err, result) {
       if (err) throw err;
       cb(result);
     })
   },
   delete: function(id, cb) {
+    console.log("ORM: " + id)
     let queryString = `
     DELETE FROM books
-    WHERE id = (${parseInt('?')})`
-    connection.query(queryString, value, function(err, result) {
+    WHERE id = (?)`
+    connection.query(queryString, id, function(err, result) {
       if (err) throw err;
       cb(result);
     })

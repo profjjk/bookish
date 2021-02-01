@@ -31,8 +31,8 @@ router.put("/api/books/:id", function(req, res) {
 })
 
 router.delete("/api/books/:id", function(req, res) {
-  const id = req.params.id;
-  book.delete([id], function(result) {
+  console.log("Controller: " + req.params.id);
+  book.delete([req.params.id], function(result) {
     if (result.changedRows === 0) {
       return res.status(404).end();
     }

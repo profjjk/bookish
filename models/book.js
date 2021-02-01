@@ -19,6 +19,7 @@ const book = {
     });
   },
   delete: function(id, cb) {
+    console.log("Book: " + id)
     orm.delete(id, function(res) {
       cb(res);
     });

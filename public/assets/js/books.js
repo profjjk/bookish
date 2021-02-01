@@ -21,15 +21,15 @@ $(document).ready(event => {
   })
 
   // UPDATE BOOK
-  $('#bookInfo').on("click", () => {
+  $(document.body).on("click", '.book-info', () => {
     const id = $(this).attr('data-id');
     const status = $(this).attr('data-finished');
     let newStatus;
 
     if (status === true) {
-      newStatus = { finished: false };
+      newStatus = { id: id, finished: false };
     } else {
-      newStatus = { finished: true };
+      newStatus = { id: id, finished: true };
     }
 
     $.ajax({
@@ -37,29 +37,23 @@ $(document).ready(event => {
       type: `PUT`,
       data: newStatus,
     }).then(response => {
-      if (response.ok) {
-        console.log(`Changed book finished status to ${newStatus}`);
-        location.reload('/');
-      } else {
-        alert(`Something went wrong`);
-      }
+      console.log(`Changed book finished status to ${newStatus}`);
+      location.reload('/');
     });
   });
 
   // DELETE BOOK
-  $('#delete-btn').on("click", () => {
+  $(document.body).on("click", '.delete', (event) => {
+    event.preventDefault();
     const id = $(this).attr('data-id');
+    console.log("Books: " + id);
 
     $.ajax({
       url: `/api/books/${id}`,
       type: `DELETE`
     }).then(response => {
-      if (response.ok) {
-        console.log(`Book deleted`);
-        location.reload('/');
-      } else {
-        alert(`Something went wrong`);
-      }
-    })
-  })
+      console.log(`Book deleted`);
+      location.reload('/');
+    });
+  });
 });

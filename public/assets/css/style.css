@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #23689b;
+  background-color: #487e95;
 }
 
 /***** HEADER *****/
@@ -20,7 +20,8 @@ h1 {
 
 /***** MAIN AREA *****/
 h4 {
-  font-family: 'Libre Caslon Text', serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
   color: #f4f5db;
 }
 .book {
@@ -31,13 +32,22 @@ h4 {
   cursor: pointer;
 }
 .book {
+  font-family: 'Raleway', sans-serif;
   width: 90%;
   border: none;
 }
 #add-btn {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #433d3c;
   background: #f4f5db;
-  color: #000;
 }
-#delete-btn:hover {
-  cursor: pointer;
+input {
+  font-family: 'Raleway', sans-serif;
+}
+.delete {
+  background: #f4f5db;
+}
+.fas {
+  color: #433d3c;
 }

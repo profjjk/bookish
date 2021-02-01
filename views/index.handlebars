@@ -21,19 +21,20 @@
   </div>
 
   <!-- Column titles -->
-  <div class="row justify-content-center">
+  <!--div class="row justify-content-center">
     <div class="col-xl-5 col-lg-6 left p-2">
       <h4 class="text-center">Books I want to read</h4>
     </div>
     <div class="col-xl-5 col-lg-6 right p-2">
       <h4 class="text-center">Books I finished reading</h4>
     </div>
-  </div>
+  </div-->
 
   <!-- Book information fields -->
   <div class="row justify-content-center">
     <!-- Books to read -->
-    <div class="col-xl-5 col-lg-6 left p-2">
+    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-7 left p-2">
+      <h4 class="text-center mb-4">Books I want to read</h4>
       {{#each books}}
       {{#unless finished}}
       {{> book-block finished = false}}
@@ -41,7 +42,8 @@
       {{/each}}
     </div>
     <!-- Books finished -->
-    <div class="col-xl-5 col-lg-6 right p-2">
+    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-7 right p-2">
+      <h4 class="text-center mb-4">Books I finished reading</h4>
       {{#each books}}
       {{#if finished}}
       {{> book-block finished = true}}

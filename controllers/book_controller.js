@@ -24,8 +24,6 @@ router.post("/api/books", function(req, res) {
 })
 
 router.put("/api/books/:id", function(req, res) {
-  console.log("req.params.id: " + req.params.id)
-  console.log("req.body.finished: " + req.body.finished)
   book.update(req.params.id, req.body.finished, function(result) {
     if (result.affectedRows === 0) {
       return res.status(404).end();

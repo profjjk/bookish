@@ -29,7 +29,7 @@ router.post("/api/books", function(req, res) {
 // Change finished status of a book.
 router.put("/api/books/:id", function(req, res) {
   book.update(req.params.id, req.body.finished, function(result) {
-    if (result.affectedRows === 0) {
+    if (result.changedRows === 0) {
       return res.status(404).end();
     }
     res.status(200).end();

@@ -22,6 +22,7 @@ Bookish is a reading list application that allows you to keep a list of which bo
 * [Handlebars](https://handlebarsjs.com/)
 
 ## About Me
+* [My Website](https://profjjk.github.io/portfolio/)
 * [LinkedIn](https://www.linkedin.com/in/the-real-jordan-kelly/)
 * [GitHub](https://github.com/profjjk)
 

@@ -16,9 +16,10 @@ Bookish is a reading list application that allows you to keep a list of which bo
 
 ## Technologies Used
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [Node.js](https://nodejs.org/en/)
-* [Inquirer.js](https://www.npmjs.com/package/inquirer)
+* [Node](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
 * [MySQL](https://www.mysql.com/)
+* [Handlebars](https://handlebarsjs.com/)
 
 ## About Me
 * [LinkedIn](https://www.linkedin.com/in/the-real-jordan-kelly/)
